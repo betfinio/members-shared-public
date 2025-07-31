@@ -1,0 +1,23 @@
+{
+	"network": "matic",
+	"pass": {
+		"address": "0xBF2E84403A7BcEA0b74Cdc1b580aE82397777777",
+		"startBlock": 53903520
+	},
+	"conservativeStaking": {
+		"address": "0xBFF71fa4a5Ac368E0Ce8B45ca32Adf1EB7555555",
+		"startBlock": 53906922
+	},
+	"dynamicStaking": {
+		"address": "0xbF7A6Dd53C3EecEF0b83837E9beBf29260888888",
+		"startBlock": 55318944
+	},
+	"betsMemory": {
+		"address": "0xbFC62dAc5Cc5A095F72311239a56E5d78b000777",
+		"startBlock": 53904142
+	},
+	"affiliate": {
+		"address": "0xBfD38B3f83AB097A4e98Ea0a9ea11bD164000666",
+		"startBlock": 54248272
+	}
+}

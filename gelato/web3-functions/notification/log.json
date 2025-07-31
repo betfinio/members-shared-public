@@ -1,0 +1,16 @@
+{
+  "blockNumber": 68029586,
+  "blockHash": "0x9b66cce2bec84b5f979f75c3a3bdb1f5465750689d0b24053c543499e6efb039",
+  "transactionIndex": 70,
+  "removed": false,
+  "address": "0xBF2E84403A7BcEA0b74Cdc1b580aE82397777777",
+  "data": "0x",
+  "topics": [
+    "0xeb218e88e96d7a47ef96070b04a7dc5d4496ae71990cad5025623346ab8151b2",
+    "0x000000000000000000000000504aff999ba3fe5111f018c5ee93afec31885eee",
+    "0x0000000000000000000000007ef0b71571cf91c6bf47c8a0cecea10e8f8e931c",
+    "0x0000000000000000000000007ef0b71571cf91c6bf47c8a0cecea10e8f8e931c"
+  ],
+  "transactionHash": "0x028e296bd80045f68ee66aeeed0c64c54eb99ceec521f69cc3a9fa7688d297eb",
+  "logIndex": 253
+}

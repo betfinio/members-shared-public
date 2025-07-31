@@ -1,0 +1,24 @@
+{
+	"name": "@betfinio/members-shared",
+	"scripts": {
+		"codegen": "graph codegen",
+		"dev": "bun run codegen && bun run build:dev && bun run deploy:dev",
+		"prod": "bun run codegen && bun run build:prod && bun run deploy:prod",
+		"prepare:dev": "bun mustache config/polygon-amoy.json template.subgraph.yaml > subgraph.yaml",
+		"prepare:prod": "bun mustache config/matic.json template.subgraph.yaml > subgraph.yaml",
+		"build:dev": "bun prepare:dev && graph build",
+		"build:prod": "bun prepare:prod && graph build",
+		"build:silent": "graph build",
+		"deploy:dev": "graph deploy --node https://api.studio.thegraph.com/deploy/ members-dev --network polygon-amoy",
+		"deploy:prod": "graph deploy --node https://api.studio.thegraph.com/deploy/ members-prod --network matic",
+		"test": "graph test"
+	},
+	"dependencies": {
+		"@graphprotocol/graph-cli": "^0.97.0",
+		"@graphprotocol/graph-ts": "^0.38.0"
+	},
+	"devDependencies": {
+		"matchstick-as": "^0.6.0",
+		"mustache": "^4.2.0"
+	}
+}

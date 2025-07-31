@@ -1,0 +1,125 @@
+specVersion: 1.2.0
+indexerHints:
+  prune: never
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Pass
+    network: matic
+    source:
+      abi: Pass
+      address: "0xBF2E84403A7BcEA0b74Cdc1b580aE82397777777"
+      startBlock: 53903520
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Member
+        - MemberData
+      abis:
+        - name: Pass
+          file: ../abis/Pass.json
+      eventHandlers:
+        - event: NewMember(indexed address,indexed address,indexed address)
+          handler: handleNewMember
+      file: ./src/pass.ts
+  - kind: ethereum
+    name: ConservativeStaking
+    network: matic
+    source:
+      abi: ConservativeStaking
+      address: "0xBFF71fa4a5Ac368E0Ce8B45ca32Adf1EB7555555"
+      startBlock: 53906922
+    context:
+      affiliate:
+        type: Bytes
+        data: "0xBfD38B3f83AB097A4e98Ea0a9ea11bD164000666"
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Member
+        - MemberData
+      abis:
+        - name: ConservativeStaking
+          file: ../abis/ConservativeStaking.json
+        - name: Affiliate
+          file: ../abis/Affiliate.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256)
+          handler: handleStaked
+      file: ./src/pass.ts
+  - kind: ethereum
+    name: DynamicStaking
+    network: matic
+    source:
+      abi: DynamicStaking
+      address: "0xbF7A6Dd53C3EecEF0b83837E9beBf29260888888"
+      startBlock: 55318944
+    context:
+      affiliate:
+        type: Bytes
+        data: "0xBfD38B3f83AB097A4e98Ea0a9ea11bD164000666"
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Member
+        - MemberData
+      abis:
+        - name: DynamicStaking
+          file: ../abis/DynamicStaking.json
+        - name: Affiliate
+          file: ../abis/Affiliate.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256)
+          handler: handleStaked
+      file: ./src/pass.ts
+  - kind: ethereum
+    name: BetsMemory
+    network: matic
+    source:
+      abi: BetsMemory
+      address: "0xbFC62dAc5Cc5A095F72311239a56E5d78b000777"
+      startBlock: 53904142
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Member
+        - MemberData
+      abis:
+        - name: BetsMemory
+          file: ../abis/BetsMemory.json
+        - name: BetInterface
+          file: ../abis/BetInterface.json
+      eventHandlers:
+        - event: NewBet(indexed address,indexed address,indexed address)
+          handler: handleBet
+      file: ./src/pass.ts
+  - kind: ethereum
+    name: Affiliate
+    network: matic
+    source:
+      abi: Affiliate
+      address: "0xBfD38B3f83AB097A4e98Ea0a9ea11bD164000666"
+      startBlock: 54248272
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Member
+        - MemberData
+      abis:
+        - name: Affiliate
+          file: ../abis/Affiliate.json
+      eventHandlers:
+        - event: NewMatchingBonus(indexed address,indexed uint256)
+          handler: handleBonus
+      file: ./src/pass.ts

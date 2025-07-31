@@ -1,0 +1,52 @@
+type Member @entity(immutable: false) {
+	id: Bytes!
+	member: Bytes! # address
+	name: String! # string
+	inviter: Member # address
+	parent: Member # address
+	left: Member # address
+	right: Member # address
+
+	staking: BigInt! # uint256
+	betting: BigInt! # uint256
+
+	isInviting: Boolean! # bool
+	isMatching: Boolean! # bool
+
+	bonus: BigInt! # uint256
+	lastUpdatedBonus: BigInt! # uint256
+
+	created: BigInt! # uint256
+	linearData: LinearData! # LinearData
+	binaryData: BinaryData! # BinaryData
+}
+
+type LinearData @entity(immutable: false) {
+	id: Bytes!
+	member: Bytes! # address
+	directCount: BigInt! # uint256
+	linearCount: BigInt! # uint256
+	stakingDirect: BigInt! # uint256
+	stakingLinear: BigInt! # uint256
+	bettingDirect: BigInt! # uint256
+	bettingLinear: BigInt! # uint256
+	path: [Member!]!
+	linearLevel: BigInt! # uint256
+}
+
+type BinaryData @entity(immutable: false) {
+	id: Bytes!
+	side: String! # string
+	member: Bytes! # address
+	leftCount: BigInt! # uint256
+	rightCount: BigInt! # uint256
+	stakingLeft: BigInt! # uint256
+	stakingRight: BigInt! # uint256
+	bettingLeft: BigInt! # uint256
+	bettingRight: BigInt! # uint256
+	totalMatched: BigInt! # uint256
+	totalVolume: BigInt! # uint256
+	binaryLevel: BigInt! # uint256
+	weakVolume: BigInt! # uint256
+	strongVolume: BigInt! # uint256
+}
