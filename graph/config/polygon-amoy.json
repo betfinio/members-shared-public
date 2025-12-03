@@ -1,23 +1,24 @@
 {
 	"network": "polygon-amoy",
 	"pass": {
-		"address": "0x171d4056fe9f72bec8e8c59c2e4de32cfaaad79e",
-		"startBlock": 5932014
+		"address": "0x35d9e8991a1997019495B662F098F88515F24EEf",
+		"startBlock": 23419006,
+		"exception": 0
 	},
 	"conservativeStaking": {
-		"address": "0x9de8f5e56aa71521FB3fC6bDe3c4225FD232C483",
-		"startBlock": 5932026
+		"address": "0x97C652D28eeE2C22aCd5Ab88038e84C18D1271E6",
+		"startBlock": 23461117
 	},
 	"dynamicStaking": {
-		"address": "0xEf00FAB4133aC06041b94fC1Bb1F239be8AB022A",
-		"startBlock": 5932030
+		"address": "0x2284f0C60775850b9409630B3191F58Ff1D5a342",
+		"startBlock": 23461117
 	},
 	"betsMemory": {
-		"address": "0x23Fc05608ec5D1aEf7f676423Cc868D27D0226c9",
-		"startBlock": 5932010
+		"address": "0x731eA908b44aAdb3e65621D61BC46C9fb1A2DD99",
+		"startBlock": 23419006
 	},
 	"affiliate": {
-		"address": "0x9648AEFb0d848be1da0f95b7f8E9032B99A77D51",
-		"startBlock": 5932056
+		"address": "0x54b302ebe35de1C17918CA20ba8Bc6F5bCe580Dc",
+		"startBlock": 23419270
 	}
 }

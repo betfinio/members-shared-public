@@ -1,52 +1,80 @@
 type Member @entity(immutable: false) {
-	id: Bytes!
-	member: Bytes! # address
-	name: String! # string
-	inviter: Member # address
-	parent: Member # address
-	left: Member # address
-	right: Member # address
-
-	staking: BigInt! # uint256
-	betting: BigInt! # uint256
-
-	isInviting: Boolean! # bool
-	isMatching: Boolean! # bool
-
-	bonus: BigInt! # uint256
-	lastUpdatedBonus: BigInt! # uint256
-
-	created: BigInt! # uint256
-	linearData: LinearData! # LinearData
-	binaryData: BinaryData! # BinaryData
+  id: Bytes!
+  member: Bytes! # address
+  name: String! # string
+  inviter: Member # address
+  parent: Member # address
+  left: Member # address
+  right: Member # address
+  staking: BigInt! # uint256
+  betting: BigInt! # uint256
+  isInviting: Boolean! # bool
+  isMatching: Boolean! # bool
+  bonus: BigInt! # uint256
+  lastUpdatedBonus: BigInt! # uint256
+  created: BigInt! # uint256
+  linearData: LinearData! # LinearData
+  binaryData: BinaryData! # BinaryData
+  invitees: [Member!]! @derivedFrom(field: "inviter")
 }
 
 type LinearData @entity(immutable: false) {
-	id: Bytes!
-	member: Bytes! # address
-	directCount: BigInt! # uint256
-	linearCount: BigInt! # uint256
-	stakingDirect: BigInt! # uint256
-	stakingLinear: BigInt! # uint256
-	bettingDirect: BigInt! # uint256
-	bettingLinear: BigInt! # uint256
-	path: [Member!]!
-	linearLevel: BigInt! # uint256
+  id: Bytes!
+  member: Bytes! # address
+  directCount: Int8! # uint256
+  linearCount: Int8! # uint256
+  stakingDirect: BigInt! # uint256
+  stakingLinear: BigInt! # uint256
+  bettingDirect: BigInt! # uint256
+  bettingLinear: BigInt! # uint256
+  path: [Member!]!
+  linearLevel: Int8! # uint256
 }
 
 type BinaryData @entity(immutable: false) {
-	id: Bytes!
-	side: String! # string
-	member: Bytes! # address
-	leftCount: BigInt! # uint256
-	rightCount: BigInt! # uint256
-	stakingLeft: BigInt! # uint256
-	stakingRight: BigInt! # uint256
-	bettingLeft: BigInt! # uint256
-	bettingRight: BigInt! # uint256
-	totalMatched: BigInt! # uint256
-	totalVolume: BigInt! # uint256
-	binaryLevel: BigInt! # uint256
-	weakVolume: BigInt! # uint256
-	strongVolume: BigInt! # uint256
+  id: Bytes!
+  side: String! # string
+  member: Bytes! # address
+  leftCount: Int8! # uint256
+  rightCount: Int8! # uint256
+  stakingLeft: BigInt! # uint256
+  stakingRight: BigInt! # uint256
+  bettingLeft: BigInt! # uint256
+  bettingRight: BigInt! # uint256
+  volumeLeft: BigInt! # uint256
+  volumeRight: BigInt! # uint256
+  totalMatched: BigInt! # uint256
+  totalVolume: BigInt! # uint256
+  totalMatchedVolume: BigInt! # uint256
+  binaryLevel: BigInt! # uint256
+  weakVolume: BigInt! # uint256
+  strongVolume: BigInt! # uint256
+  matchedRight: BigInt! # uint256
+  matchedLeft: BigInt! # uint256
+  matchedWeak: BigInt! # uint256
+  matchedStrong: BigInt! # uint256
+}
+
+type UserPoolStake @entity(immutable: false) {
+  id: Bytes!
+  member: Member! # Member
+  linearData: LinearData! # LinearData
+  binaryData: BinaryData! # BinaryData
+  pool: Bytes! # address
+  amount: BigInt! # uint256
+  staking: Bytes! # address
+  endDate: BigInt! # uint256
+  unstakedAt: BigInt # uint256
+  unstaked: Boolean! # bool
+}
+
+
+type Conditions @entity(immutable: false) {
+  id: Bytes!
+  inviteCondition: BigInt! # uint256
+  matchingCondition: BigInt! # uint256
+  matchingInviteeCondition: BigInt! # uint256
+  inviteConditionLastUpdated: BigInt! # uint256
+  matchingConditionLastUpdated: BigInt! # uint256
+  matchingInviteeConditionLastUpdated: BigInt! # uint256
 }

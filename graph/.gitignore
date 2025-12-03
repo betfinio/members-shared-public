@@ -32,3 +32,10 @@ typechain-types
 
 # Hardhat files
 cache
+
+**/.bin/*
+
+subgraph.yaml
+
+
+**/.latest.json

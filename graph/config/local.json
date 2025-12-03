@@ -1,0 +1,23 @@
+{
+	"network": "polygon-amoy",
+	"pass": {
+		"address": "0x8d2F22aB81efAB621180181DE27fEC38629EBB96",
+		"startBlock": 22966423
+	},
+	"conservativeStaking": {
+		"address": "0xE7A637Fc23126aaBa12bc575C15F2Ce34db9315E",
+		"startBlock": 22966423
+	},
+	"dynamicStaking": {
+		"address": "0xdb27e5b57480bDfd6e523D25030B1cF92AAe2D9d",
+		"startBlock": 22967441
+	},
+	"betsMemory": {
+		"address": "0x23Fc05608ec5D1aEf7f676423Cc868D27D0226c9",
+		"startBlock": 5932010
+	},
+	"affiliate": {
+		"address": "0xFb4079Cc24d15E15B13ab3DEB993Ac991Fe8de6c",
+		"startBlock": 22966423
+	}
+}

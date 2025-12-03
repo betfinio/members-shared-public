@@ -1,0 +1,11 @@
+import { Address } from "@graphprotocol/graph-ts"
+export const root = Address.fromString("0x0000000000000000000000000000000000000001")
+export const alice = Address.fromString("0x0000000000000000000000000000000000000002")
+export const bob = Address.fromString("0x0000000000000000000000000000000000000003")
+export const charlie = Address.fromString("0x0000000000000000000000000000000000000004")
+export const dave = Address.fromString("0x0000000000000000000000000000000000000005")
+export const eve = Address.fromString("0x0000000000000000000000000000000000000006")
+export const frank = Address.fromString("0x0000000000000000000000000000000000000007")
+export const grace = Address.fromString("0x0000000000000000000000000000000000000008")
+export const heidi = Address.fromString("0x0000000000000000000000000000000000000009")
+export const ivan = Address.fromString("0x000000000000000000000000000000000000000A")

@@ -4,20 +4,27 @@
 		"codegen": "graph codegen",
 		"dev": "bun run codegen && bun run build:dev && bun run deploy:dev",
 		"prod": "bun run codegen && bun run build:prod && bun run deploy:prod",
-		"prepare:dev": "bun mustache config/polygon-amoy.json template.subgraph.yaml > subgraph.yaml",
-		"prepare:prod": "bun mustache config/matic.json template.subgraph.yaml > subgraph.yaml",
+		"local": "bun run codegen && bun run build:dev && bun run remove-local && bun run create-local && bun run deploy:local",
+		"prepare:dev": "chmod +x scripts/prepare-subgraph.sh && ./scripts/prepare-subgraph.sh dev",
+		"prepare:prod": "chmod +x scripts/prepare-subgraph.sh && ./scripts/prepare-subgraph.sh prod",
+		"prepare:local": "chmod +x scripts/prepare-subgraph.sh && ./scripts/prepare-subgraph.sh local",
 		"build:dev": "bun prepare:dev && graph build",
 		"build:prod": "bun prepare:prod && graph build",
 		"build:silent": "graph build",
-		"deploy:dev": "graph deploy --node https://api.studio.thegraph.com/deploy/ members-dev --network polygon-amoy",
-		"deploy:prod": "graph deploy --node https://api.studio.thegraph.com/deploy/ members-prod --network matic",
-		"test": "graph test"
+		"deploy:dev": "graph deploy --node https://api.studio.thegraph.com/deploy/ members-dev",
+		"deploy:prod": "graph deploy --node https://api.studio.thegraph.com/deploy/ members-prod",
+		"deploy:local": "graph deploy members-dev --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+		"test": "graph test",
+		"create-local": "graph create members-dev --node http://127.0.0.1:8020",
+		"deploy-local": "graph deploy members-dev --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+		"remove-local": "graph remove members-dev --node http://127.0.0.1:8020"
 	},
 	"dependencies": {
-		"@graphprotocol/graph-cli": "^0.97.0",
-		"@graphprotocol/graph-ts": "^0.38.0"
+		"@graphprotocol/graph-cli": "^0.97.1",
+		"@graphprotocol/graph-ts": "^0.38.1"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^2.2.2",
 		"matchstick-as": "^0.6.0",
 		"mustache": "^4.2.0"
 	}
